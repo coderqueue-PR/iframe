@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>Iframe Script Url</title>
+</head>
+<style>
+
+.bttn{
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 52px;
+  display: flex;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 150px;
+  color: black;
+}
+
+iframe{
+    box-shadow: 0px 1px 15px black;
+}
+
+
+@media screen and (max-width: 1068px){
+    iframe{
+       width: 62rem;
+    }
+}
+@media screen and (max-width: 440px){
+    iframe{
+        width: 23rem;
+    }
+    .bttn{
+        right: 28px;
+    }
+}
+</style>
+<body>
+    <div id="closebtn">
+    <button onclick="myEnter()" id="btnShow" class="bttn" >&times;</button>
+    <iframe id="myIframe" frameborder="0" marginwidth="0" marginheight="0" width="1250px" height="700px" style="display: flex; margin: auto; margin-top: 3rem;">
+    </iframe>
+</div>
+</body>
+<script>
+    let myIframe = document.getElementById("myIframe");
+    let url_string = "https://developerpranayarath.netlify.app/";
+    let width = "728";
+    let height = "900";
+    let geo = "uk";
+
+    let adsURL = url_string+"?geo="+geo+"&size="+width+"x"+height;
+    console.log(adsURL);
+    myIframe.src = adsURL;
+    document.getElementById("btnShow").onclick = function() {myEnter()};
+        function myEnter() {
+				setTimeout(function(){ document.getElementById("closebtn").style.display = "none";}, 100);
+              }
+
+</script>
+</html>
